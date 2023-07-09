@@ -35,10 +35,10 @@ The API provides `.observe.on` and `.observe.off` methods for listening to or re
 It also provides `.observe.on_dom` and `.observe.off_dom` for events triggered by changes in the DOM. These methods require a specific event name and a callback function.
 
 ```javascript
-outlookJs.observe.on(eventName, callback);
-outlookJs.observe.off(eventName, callback);
-outlookJs.observe.on_dom(eventName, callback);
-outlookJs.observe.off_dom(eventName, callback);
+outlookJS.observe.on(eventName, callback);
+outlookJS.observe.off(eventName, callback);
+outlookJS.observe.on_dom(eventName, callback);
+outlookJS.observe.off_dom(eventName, callback);
 ```
 
 ### DOM Methods
@@ -46,7 +46,7 @@ outlookJs.observe.off_dom(eventName, callback);
 The `.dom.composes()` method returns all active compose windows in the web app:
 
 ```javascript
-const composeWindows = outlookJs.dom.composes();
+const composeWindows = outlookJS.dom.composes();
 ```
 
 ### Fetch Observers
@@ -54,7 +54,7 @@ const composeWindows = outlookJs.dom.composes();
 Fetch observers are used to monitor fetch requests that occur within the web app. You can use `.addFetchObserver()` to start watching for specific fetch requests:
 
 ```javascript
-outlookJs.addFetchObserver(observerName, handler);
+outlookJS.addFetchObserver(observerName, handler);
 ```
 
 Currently, the API automatically observes `cacheEmailThreads` by default. Other observers can be added with the above method.
@@ -64,8 +64,8 @@ Currently, the API automatically observes `cacheEmailThreads` by default. Other 
 The `.get` object has several methods to retrieve the current state of the web app. These include getting the current user's sessions, email addresses, email data, thread data, and more.
 
 ```javascript
-const userEmail = outlookJs.get.userEmail();
-const threadData = outlookJs.get.threadData(threadId);
+const userEmail = outlookJS.get.userEmail();
+const threadData = outlookJS.get.threadData(threadId);
 ```
 
 ## Cache
@@ -101,7 +101,7 @@ const emailObject = {
 The `parseThreadFromDom` method is a utility that parses information from an opened email thread in the DOM. This method returns an object that includes a list of email objects. Each email object contains a randomly generated ID and data about the email, including sender, recipients, and content.
 
 ```javascript
-const threadData = outlookJs.parseThreadFromDom();
+const threadData = outlookJS.parseThreadFromDom();
 ```
 
 **Important Note:** The `parseThreadFromDom` method can only retrieve information from opened emails and the preview text from collapsed ones.
@@ -124,7 +124,7 @@ Currently, the following fetch request event names are available for observation
 To observe these events, use the `.addFetchObserver()` method, providing the event name and a callback function:
 
 ```javascript
-outlookJs.addFetchObserver(eventName, callback);
+outlookJS.addFetchObserver(eventName, callback);
 ```
 
 ## DOM Observer Event Names
@@ -139,13 +139,13 @@ The current DOM event names are as follows:
 To listen to these events, use the `.observe.on_dom()` method, providing the event name and a callback function:
 
 ```javascript
-outlookJs.observe.on_dom(eventName, callback);
+outlookJS.observe.on_dom(eventName, callback);
 ```
 
 To stop listening to these events, use the `.observe.off_dom()` method, again providing the event name and the callback function:
 
 ```javascript
-outlookJs.observe.off_dom(eventName, callback);
+outlookJS.observe.off_dom(eventName, callback);
 ```
 
 ## Important Note
