@@ -1,6 +1,6 @@
 # Outlook JS
 
-This library provides an unofficial interface to interact with the Outlook Web App, providing means to hook into, listen to, and interact with the app's core functionality.
+This library provides an unofficial interface to interact with the Outlook Web App, providing means to hook into, listen to, and interact with the app's core functionality. This is not yet an npm package, if it gets significant enough usage I will build out a testing suite and publish it. For now, just fork the repo.
 
 ## Basic Usage
 
