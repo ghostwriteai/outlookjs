@@ -49,6 +49,27 @@ The `.dom.composes()` method returns all active compose windows in the web app:
 const composeWindows = outlookJS.dom.composes();
 ```
 
+## DOM Observer Event Names
+
+The current DOM event names are as follows:
+
+1. **viewEmail**: Triggered when an email is viewed. The associated class name for this event is `.SlLx9.byzS1`.
+2. **viewThread**: Triggered when a thread is opened. The associated class name is also `.SlLx9.byzS1`.
+3. **compose**: Triggered when a new email compose window is opened. The associated class names are `.dMm6A` and `.gXGox`.
+4. **recipientChange**: Triggered when the recipient of an email is changed. The associated class name is `.Lbs4W`.
+
+To listen to these events, use the `.observe.on_dom()` method, providing the event name and a callback function:
+
+```javascript
+outlookJS.observe.on_dom(eventName, callback);
+```
+
+To stop listening to these events, use the `.observe.off_dom()` method, again providing the event name and the callback function:
+
+```javascript
+outlookJS.observe.off_dom(eventName, callback);
+```
+
 ### Fetch Observers
 
 Fetch observers are used to monitor fetch requests that occur within the web app. You can use `.addFetchObserver()` to start watching for specific fetch requests:
@@ -58,6 +79,20 @@ outlookJS.addFetchObserver(observerName, handler);
 ```
 
 Currently, the API automatically observes `cacheEmailThreads` by default. Other observers can be added with the above method.
+
+## Fetch Observer Event Names
+
+Currently, the following fetch request event names are available for observation:
+
+1. **sendMessage**: This event fires when a new email message is being sent. The associated requests are `createitem` and `updateitem`.
+2. **cacheEmailThreads**: This event fires when email thread data is being fetched. The associated request is `getconversationitems`.
+
+To observe these events, use the `.addFetchObserver()` method, providing the event name and a callback function:
+
+```javascript
+outlookJS.addFetchObserver(eventName, callback);
+```
+
 
 ### Data Retrieval Methods
 
@@ -113,40 +148,6 @@ This API is still under development and may change in the future. Always ensure 
 ## Future Development
 
 The plan is to extend the API with more convenience methods and data processing features. Contributions are welcome, please follow the contribution guidelines.
-
-## Fetch Observer Event Names
-
-Currently, the following fetch request event names are available for observation:
-
-1. **sendMessage**: This event fires when a new email message is being sent. The associated requests are `createitem` and `updateitem`.
-2. **cacheEmailThreads**: This event fires when email thread data is being fetched. The associated request is `getconversationitems`.
-
-To observe these events, use the `.addFetchObserver()` method, providing the event name and a callback function:
-
-```javascript
-outlookJS.addFetchObserver(eventName, callback);
-```
-
-## DOM Observer Event Names
-
-The current DOM event names are as follows:
-
-1. **viewEmail**: Triggered when an email is viewed. The associated class name for this event is `.SlLx9.byzS1`.
-2. **viewThread**: Triggered when a thread is opened. The associated class name is also `.SlLx9.byzS1`.
-3. **compose**: Triggered when a new email compose window is opened. The associated class names are `.dMm6A` and `.gXGox`.
-4. **recipientChange**: Triggered when the recipient of an email is changed. The associated class name is `.Lbs4W`.
-
-To listen to these events, use the `.observe.on_dom()` method, providing the event name and a callback function:
-
-```javascript
-outlookJS.observe.on_dom(eventName, callback);
-```
-
-To stop listening to these events, use the `.observe.off_dom()` method, again providing the event name and the callback function:
-
-```javascript
-outlookJS.observe.off_dom(eventName, callback);
-```
 
 ## Important Note
 
